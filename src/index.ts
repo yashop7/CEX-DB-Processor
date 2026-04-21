@@ -1,11 +1,11 @@
 import { Client } from "pg";
 import { createClient } from "redis";
 import { DbMessage } from "./types";
-import { dbUrl, redisUrl } from "./config";
+import { dbUrl, redisEngineDownstreamUrl } from "./config";
 import * as cron from "node-cron";
 import express from "express";
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3004;
 
 // Health check endpoint
 app.get("/health", (_req, res) => {
@@ -33,7 +33,7 @@ pgClient
 
 async function main() {
   const redisClient = createClient({
-    url: redisUrl,
+    url: redisEngineDownstreamUrl,
   });
   await redisClient.connect();
   console.log("Connected to Redis");

@@ -1,4 +1,5 @@
 require('dotenv').config();
 
-export const redisUrl = process.env.REDIS_IO; // Your Upstash Redis URL
-export const dbUrl = process.env.DATABASE_URL; // Your Railway PostgreSQL URL
+export const redisUrl = process.env.REDIS_IO;
+export const redisEngineDownstreamUrl = process.env.REDIS_ENGINE_DOWNSTREAM_URL;
+export const dbUrl = process.env.DATABASE_URL;
